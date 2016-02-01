@@ -41,7 +41,15 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_hello()
 	{
-		return Response::forge(Presenter::forge('welcome/hello'));
+		$t_params = array(
+	            'message' => 'smarty template テスト'
+	        );
+	        $view = View::forge('welcome/test.html');
+		$view->title = 'テスト！';
+	        $view->username = '太郎';
+	        
+	        return $view;
+		//return Response::forge(Presenter::forge('welcome/hello'));
 	}
 
 	/**
